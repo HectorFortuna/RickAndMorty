@@ -1,4 +1,4 @@
-package com.hectorfortuna.rickandmorty.adapter.home
+package com.hectorfortuna.rickandmorty.view.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,7 +6,9 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.hectorfortuna.rickandmorty.R
 import com.hectorfortuna.rickandmorty.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
     private lateinit var navController: NavController

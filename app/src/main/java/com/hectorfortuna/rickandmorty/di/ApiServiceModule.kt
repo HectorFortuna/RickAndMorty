@@ -1,13 +1,25 @@
-package com.hectorfortuna.rickandmorty.data.network
+package com.hectorfortuna.rickandmorty.di
 
 import com.google.gson.GsonBuilder
+import com.hectorfortuna.rickandmorty.data.network.Service
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.create
+import javax.inject.Singleton
 
-object ApiService {
-    private fun initRetrofit(): Retrofit{
+@Module
+@InstallIn(SingletonComponent::class)
+object ApiServiceModule {
+
+    @Provides
+    @Singleton
+    fun initRetrofit(): Service{
         val gson = GsonBuilder().setLenient().create()
         val logging = HttpLoggingInterceptor()
         logging.setLevel(HttpLoggingInterceptor.Level.BODY)
@@ -19,7 +31,7 @@ object ApiService {
             .addConverterFactory(GsonConverterFactory.create(gson))
             .client(client)
             .build()
+            .create(Service::class.java)
     }
 
-    val service: Service = initRetrofit().create(Service::class.java)
 }
