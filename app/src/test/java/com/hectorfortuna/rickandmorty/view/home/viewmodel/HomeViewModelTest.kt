@@ -80,7 +80,6 @@ internal class HomeViewModelTest {
 
     private fun mockCharacterResponse() = CharactersResponse(info = mockInfo(), listOf(mockResults()))
 
-    private fun mockCharacterResponseError() = CharactersResponse(mockInfo(), listOf())
 
     private fun mockInfo() = Info(1, 1, "next", "previous")
 
