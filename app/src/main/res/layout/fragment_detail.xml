@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_card"
+    android:fillViewport="true"
+    tools:context=".view.detail.fragment.DetailFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="1dp">
+
+        <ImageView
+            android:id="@+id/image_detail"
+            android:layout_width="220dp"
+            android:layout_height="220dp"
+            android:layout_marginTop="120dp"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_name_detail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@id/image_detail"
+            app:layout_constraintStart_toStartOf="@id/image_detail"
+            app:layout_constraintTop_toBottomOf="@id/image_detail"
+            tools:text="nome" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_species_detail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="@id/txt_name_detail"
+            app:layout_constraintStart_toStartOf="@id/txt_name_detail"
+            app:layout_constraintTop_toBottomOf="@id/txt_name_detail"
+            tools:text="Human" />
+
+
+        <View
+            android:id="@+id/view_divider"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="20dp"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_species_detail" />
+
+        <!--    <ScrollView-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        app:layout_constraintStart_toStartOf="parent"-->
+        <!--        app:layout_constraintTop_toBottomOf="@id/view_divider"-->
+        <!--        app:layout_constraintStart_toEndOf="parent"-->
+        <!--        app:layout_constraintEnd_toEndOf="parent"-->
+        <!--        android:fillViewport="true"-->
+        <!--        app:layout_constraintBottom_toBottomOf="parent">-->
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/origin_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Origin"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/view_divider"
+            app:layout_constraintStart_toStartOf="@id/view_divider"
+            app:layout_constraintTop_toBottomOf="@id/view_divider" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/origin_response"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@id/origin_title"
+            app:layout_constraintStart_toStartOf="@id/origin_title"
+            app:layout_constraintTop_toBottomOf="@id/origin_title"
+            tools:text="Earth" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/location_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="12dp"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/view_divider"
+            app:layout_constraintStart_toStartOf="@id/view_divider"
+            app:layout_constraintTop_toBottomOf="@id/origin_response"
+            android:text="Location" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/location_response"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@id/location_title"
+            app:layout_constraintStart_toStartOf="@id/location_title"
+            app:layout_constraintTop_toBottomOf="@id/location_title"
+            tools:text="Earth" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_episodes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@id/location_response"
+            app:layout_constraintStart_toStartOf="@id/location_response"
+            app:layout_constraintTop_toBottomOf="@id/location_response"
+            android:text="Episodes"  />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_episode_detail"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/txt_episodes"
+            app:layout_constraintStart_toStartOf="@id/txt_episodes"
+            app:layout_constraintTop_toBottomOf="@id/txt_episodes"
+            tools:itemCount="37"
+            tools:listitem="@layout/detail_item" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

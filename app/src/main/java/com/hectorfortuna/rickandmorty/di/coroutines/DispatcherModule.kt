@@ -4,27 +4,35 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import com.hectorfortuna.rickandmorty.di.coroutines.qualifiers.Default
+import com.hectorfortuna.rickandmorty.di.coroutines.qualifiers.Io
+import com.hectorfortuna.rickandmorty.di.coroutines.qualifiers.Main
+import com.hectorfortuna.rickandmorty.di.coroutines.qualifiers.Unconfined
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
+import javax.inject.Singleton
 
-@InstallIn(SingletonComponent::class)
 @Module
-object DispatcherModule {
-    @DefaultDispatcher
-    @Provides
-    fun providesDefaultDispatcher(): CoroutineDispatcher = Dispatchers.Default
+@InstallIn(SingletonComponent::class)
+object DispatcherModule{
 
-    @IoDispatcher
+    @Singleton
     @Provides
-    fun providesIoDispatcher(): CoroutineDispatcher = Dispatchers.IO
+    @Io
+    fun ioDispatcher(): CoroutineDispatcher = Dispatchers.IO
 
-    @MainDispatcher
+    @Singleton
     @Provides
-    fun providesMainDispatcher(): CoroutineDispatcher = Dispatchers.Main
+    @Default
+    fun defaultDispatcher(): CoroutineDispatcher = Dispatchers.Default
 
-    @MainImmediateDispatcher
+    @Singleton
     @Provides
-    fun providesMainImmediateDispatcher(): CoroutineDispatcher = Dispatchers.Main.immediate
+    @Main
+    fun mainDispatcher(): CoroutineDispatcher = Dispatchers.Main
 
+    @Singleton
+    @Provides
+    @Unconfined
+    fun unconfinedDispatcher(): CoroutineDispatcher = Dispatchers.Unconfined
 }
-

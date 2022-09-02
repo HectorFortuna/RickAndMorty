@@ -1,5 +1,6 @@
 package com.hectorfortuna.rickandmorty.view.home.adapter
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -37,8 +38,6 @@ class CharacterAdapter(
                 txtCharacterStatus.text = character.status
                 //especies
                 txtCharacterSpecies.text = character.species
-                //origem
-                originResponse.text = character.origin.name
 
                 Glide.with(itemView)
                     .load(character.image)
@@ -47,6 +46,7 @@ class CharacterAdapter(
 
                 itemView.setOnClickListener{
                     itemClick.invoke(character)
+
                 }
             }
         }

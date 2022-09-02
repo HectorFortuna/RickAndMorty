@@ -29,7 +29,10 @@
             android:id="@+id/txtNameCharacterItem"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
             android:textColor="@color/white"
             android:textSize="22sp"
             android:textStyle="bold"
@@ -62,33 +65,9 @@
                 android:layout_marginStart="12dp"
                 android:textColor="@color/white"
                 android:textSize="12sp"
-                tools:text="Species" />
+                tools:text="Species"
+                android:paddingBottom="40dp"/>
         </LinearLayout>
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/origin_title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="Origin"
-            android:textColor="@color/white"
-            android:textSize="18dp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@id/txtNameCharacterItem"
-            app:layout_constraintStart_toStartOf="@id/txtNameCharacterItem"
-            app:layout_constraintTop_toBottomOf="@id/linear" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/origin_response"
-            android:textColor="@color/white"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:paddingBottom="16dp"
-            app:layout_constraintEnd_toEndOf="@id/origin_title"
-            app:layout_constraintStart_toStartOf="@id/origin_title"
-            app:layout_constraintTop_toBottomOf="@id/origin_title"
-            tools:text="Earth" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

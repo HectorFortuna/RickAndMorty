@@ -1,28 +1,25 @@
 package com.hectorfortuna.rickandmorty.view.home
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
-import com.hectorfortuna.rickandmorty.view.home.viewmodel.HomeViewModel
+import androidx.navigation.fragment.findNavController
+import com.hectorfortuna.rickandmorty.R
 import com.hectorfortuna.rickandmorty.core.Status
-import com.hectorfortuna.rickandmorty.databinding.FragmentHomeBinding
 import com.hectorfortuna.rickandmorty.data.model.Results
-import com.hectorfortuna.rickandmorty.di.ApiServiceModule
-import com.hectorfortuna.rickandmorty.data.repository.CharacterRepository
-import com.hectorfortuna.rickandmorty.data.repository.CharacterRepositoryImpl
+import com.hectorfortuna.rickandmorty.databinding.FragmentHomeBinding
 import com.hectorfortuna.rickandmorty.view.home.adapter.CharacterAdapter
+import com.hectorfortuna.rickandmorty.view.home.viewmodel.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.Dispatchers
 import timber.log.Timber
+
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
     private val viewModel: HomeViewModel by viewModels()
-
-//    private lateinit var repository: CharacterRepository
 
     private lateinit var binding: FragmentHomeBinding
     private lateinit var characterAdapter: CharacterAdapter
@@ -37,7 +34,6 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        repository = CharacterRepositoryImpl(ApiServiceModule.service)
 
         getCharacters()
         observeVMEvents()
@@ -76,7 +72,12 @@ class HomeFragment : Fragment() {
 
     private fun setAdapter(characterList: List<Results>) {
         characterAdapter = CharacterAdapter(characterList){
-
+            findNavController().navigate(
+                R.id.action_homeFragment_to_detailFragment,
+                Bundle().apply {
+                    putParcelable("CHARACTER", it)
+                }
+            )
         }
     }
 }
