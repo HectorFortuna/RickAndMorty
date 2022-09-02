@@ -29,7 +29,6 @@ class HomeViewModel @Inject constructor(
                 val response = withContext(ioDispatcher){
                     repository.getCharacters(page)
                 }
-                //_response.value = State.loading(false)
                 _response.value = State.success(response)
             } catch(throwable: Throwable){
                 _response.value = State.loading(false)
