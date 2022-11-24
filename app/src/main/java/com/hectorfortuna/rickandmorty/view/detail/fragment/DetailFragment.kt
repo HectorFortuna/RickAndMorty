@@ -68,9 +68,9 @@ class DetailFragment : Fragment() {
         }
     }
 
-    private fun openUrl(utl: String) {
+    private fun openUrl(url: String) {
         val i = Intent(Intent.ACTION_VIEW)
-        i.data = Uri.parse(utl)
+        i.data = Uri.parse(url)
         startActivity(i)
     }
 }

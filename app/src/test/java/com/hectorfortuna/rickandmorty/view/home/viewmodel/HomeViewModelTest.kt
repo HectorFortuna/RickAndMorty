@@ -42,6 +42,7 @@ internal class HomeViewModelTest {
     @Test
     fun `test getCharacters loading success`() = testCoroutineDispatcher.runBlockingTest {
         testCoroutineDispatcher.pauseDispatcher()
+        fun mockCharacterResponse() = CharactersResponse(info = mockInfo(), listOf(mockResults()))
 
         doReturn(mockCharacterResponse()).`when`(repositoryMock).getCharacters(anyInt())
         viewModel.getCharacters(anyInt())
@@ -54,6 +55,7 @@ internal class HomeViewModelTest {
     @Test
     fun `test getCharacters success`() = testCoroutineDispatcher.runBlockingTest {
         testCoroutineDispatcher.pauseDispatcher()
+        fun mockCharacterResponse() = CharactersResponse(info = mockInfo(), listOf(mockResults()))
 
         doReturn(mockCharacterResponse()).`when`(repositoryMock).getCharacters(anyInt())
         viewModel.getCharacters(anyInt())
@@ -78,7 +80,7 @@ internal class HomeViewModelTest {
         Truth.assertThat(viewModel.response.value).isEqualTo(State.error<CharactersResponse>(IOException()))
     }
 
-    private fun mockCharacterResponse() = CharactersResponse(info = mockInfo(), listOf(mockResults()))
+
 
 
     private fun mockInfo() = Info(1, 1, "next", "previous")

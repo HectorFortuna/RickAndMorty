@@ -1,12 +1,11 @@
 package com.hectorfortuna.rickandmorty.view.home.adapter
 
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.hectorfortuna.rickandmorty.databinding.CharacterItemBinding
 import com.hectorfortuna.rickandmorty.data.model.Results
+import com.hectorfortuna.rickandmorty.databinding.CharacterItemBinding
 
 class CharacterAdapter(
     private val results: List<Results>,
@@ -34,6 +33,7 @@ class CharacterAdapter(
             binding.run {
                 //nome
                 txtNameCharacterItem.text = character.name
+
                 //status
                 txtCharacterStatus.text = character.status
                 //especies

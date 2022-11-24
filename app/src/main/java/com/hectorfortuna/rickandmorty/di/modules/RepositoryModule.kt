@@ -1,4 +1,4 @@
-package com.hectorfortuna.rickandmorty.di
+package com.hectorfortuna.rickandmorty.di.modules
 
 import com.hectorfortuna.rickandmorty.data.repository.CharacterRepository
 import com.hectorfortuna.rickandmorty.data.repository.CharacterRepositoryImpl

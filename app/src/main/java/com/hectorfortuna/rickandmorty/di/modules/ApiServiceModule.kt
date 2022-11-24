@@ -1,4 +1,4 @@
-package com.hectorfortuna.rickandmorty.di
+package com.hectorfortuna.rickandmorty.di.modules
 
 import com.google.gson.GsonBuilder
 import com.hectorfortuna.rickandmorty.data.network.Service
@@ -10,7 +10,6 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 import javax.inject.Singleton
 
 @Module
